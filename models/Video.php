@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 class Video {
-    public $videoname;
+    public $sendername;
     public $videourl;
     public $timeupload;
     public $dateupload;
@@ -14,7 +14,7 @@ class Video {
     
         return [
             'id' => $this->id,
-            'videoname'=> $this->videoname,
+            'sendername'=> $this->sendername,
             'videourl'=> $this->videourl,
             'timeupload'=> $this->timeupload,
             'dateupload'=> $this->dateupload

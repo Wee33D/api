@@ -10,15 +10,16 @@ class VideoService {
     }
 
 
-    function insertVideo($videoname,$videourl,$timeupload,$dateupload,){
+    function insertVideo($sendername,$videourl,$timendateupload){
         try{
-            $sql = "INSERT INTO videos(videoname, videourl, timeupload, dateupload) VALUES (:videoname,:videourl,:timeupload,:dateupload)";
+            $sql = "INSERT INTO videos(sendername, videourl, timendateupload) VALUES (:sendername,:videourl, NOW() )";
 
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam(":videoname",$videoname);
+            $stmt->bindParam(":sendername",$sendername);
             $stmt->bindParam(":videourl",$videourl);
-            $stmt->bindParam(":timeupload",$timeupload);
-            $stmt->bindParam(":dateupload",$dateupload);
+            
+            
+            $stmt->execute();
 
             $dbs = new DbResponse();
             $dbs->status = true;
@@ -51,10 +52,10 @@ class VideoService {
 
                 $video = new Video();
                 $video->id = $row['id'];
-                $video->videoname=$row['videoname'];
+                $video->sendername=$row['sendername'];
                 $video->videourl=$row['videourl'];
-                $video->timeupload=$row['timeupload'];
-                $video->dateupload=$row['dateupload'];
+                $video->timendateupload=$row['timendateupload'];
+                
                 # code...
                 array_push($data, $video);
             }

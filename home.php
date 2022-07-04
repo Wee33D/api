@@ -19,17 +19,10 @@
   </head>
   <body>
     <div class="container mt-5">
-      <h2>Contact List</h2>
-
-      <!-- <a href="http://localhost/api/addNewContact.php">
-      <button type="button" class="btn btn-primary" id="addpatient">
-        Add new Contact</button
-      ></a> -->
-
-      <button type="button" class="btn btn-primary" id="addContact">ADD CONTACT </button>
-      
-      
-      <br /><br />
+      <h2>Patients</h2>
+      <button type="button" class="btn btn-primary" id="addContact">
+        Add new Patient</button
+      ><br /><br />
       <table class="table" id="Contacts">
         <thead>
           <tr>
@@ -90,19 +83,21 @@
                   
                   
                   "</td>" +
-                  "   <td><a href='update.html?id=" +
+                  "   <td><a href='display.html?id=" +
+                  p.id +
+                  "'>View Patient</a>  |  " +
+                  "<a href='update.html?id=" +
+                  p.id +
+                  "'>Update Patient</a><br/> <br/>" +
                   "<button class='btn btn-sm btn-warning'  type='button' data-id='" +
                   p.id +
-                  "' data-status='2'>UPDATE</button> |  " +
-
-                  "   <td><a href='insert.html?id=" +
+                  "' data-status='2'>Set ICU</button> |  " +
                   "<button class='btn btn-sm btn-warning' type='button' data-id='" +
                   p.id +
-                  "' data-status='3'>DELETE</button> | " +
-
-
-
-
+                  "' data-status='3'>Set Clinical Death</button> | " +
+                  "<button class='btn btn-sm btn-warning' type='button' data-id='" +
+                  p.id +
+                  "' data-status='4'>Set Discharge</button><br /><br /></td>" +
                   "</tr>"
               );
             });

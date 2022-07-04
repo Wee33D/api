@@ -20,17 +20,16 @@
   <body>
     <div class="container mt-5">
       <h2>Video</h2>
-      <button type="button" class="btn btn-primary" id="addpatient">
+      <button type="button" class="btn btn-primary" id="addVideo">
         Add new Video</button
       ><br /><br />
       <table class="table" id="Videos">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Video Name</th>
+            <th scope="col">User </th>
             <th scope="col">URL</th>
-            <th scope="col">Time Upload</th>
-            <th scope="col">Date Upload</th>
+            <th scope="col">Time & Date Upload</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -75,17 +74,14 @@
                   "   <td><a href='display.html?id=" +
                   p.id +
                   "'>" +
-                  p.videoname +
+                  p.sendername +
                   "</a></td>" +
                   "</td>" +
                   "   <td><p id="+"'"+p.id+"'"+" onclick= myFunction("+"'"+p.videourl+"',"+"'"+p.id+"')>" +
                   p.videourl +
                   "</p></td>" +
                   "   <td>" +
-                  p.timeupload +
-                  "   <td>" +
-                  p.dateupload +
-                  "</td>" +
+                  p.timendateupload +
                   
                   "</td>" +
                   "   <td><a href='display.html?id=" +
@@ -105,8 +101,8 @@
 }
         });
 
-        $("#addpatient").click(function () {
-          window.location.href = "insert.html";
+        $("#addVideo").click(function () {
+          window.location.href = "addnewVideo.php";
         });
 
         $("#patients").on("click", "button", function () {

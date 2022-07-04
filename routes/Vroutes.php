@@ -35,13 +35,12 @@ return function (App $app) {
 
     $app->post('/Videos/add', function ($request,$response){
         $json = json_decode($request->getBody());
-        $videoname= $json->videoname;
+        $sendername= $json->sendername;
         $videourl = $json->videourl;
-        $timeupload = $json->timeupload;
-        $dateupload = $json->dateupload;
+        $timendateupload = '';
 
         $service = new VideoService();
-        $dbs = $service->insertVideo($videoname,$videourl,$timeupload,$dateupload);
+        $dbs = $service->insertVideo($sendername,$videourl,$timendateupload);
 
         $data = array(
             "insertStatus"=> $dbs->status,
@@ -51,6 +50,26 @@ return function (App $app) {
         ->withHeader('Content-type', 'application/json');
     });
 
+    $app->post('/Videos/addByForm', function ($request, $response) {
+
+        //form data
+        $json = $request->getParsedBody();
+        $sendername = $json['sendername'];
+        $videourl = $json['videourl'];
+        $timendateupload = '';
+        
+        $service = new VideoService();
+        $dbs = $service->insertVideo($sendername, $videourl,$timendateupload);
+    
+        $data = array(
+            "insertStatus" => $dbs->status,
+            "errorMessage" => $dbs->error
+        );
+    
+        
+        return $response->withJson($data, 200)
+            ->withHeader('Content-type', 'application/json');
+    });
 
 
 
