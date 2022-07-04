@@ -15,10 +15,11 @@ class ContactService{
             $sql = "INSERT INTO contacts(name, phonenum, email) VALUES (:name, :phonenum, :email)";
 
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam("name", $name);
-            $stmt->bindParam("phonenum", $phonenum);
-            $stmt->bindParam("email", $email);
-            $stmt->execute();
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":phonenum", $phonenum);
+            $stmt->bindParam(":email", $email);
+
+            
 
             $dbs = new DbResponse();
             $dbs->status = true;

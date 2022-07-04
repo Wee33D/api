@@ -4,7 +4,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE");
 
     class db{
         // Properties
-        private $host = 'localhost: 3306';
+        private $host = 'localhost: 3307';
         private $user = 'root';
         private $password = '';
         private $dbname = 'project_wt';
@@ -26,7 +26,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE");
     
    function getDatabase() {
 
-    $dbhost = "localhost:3306";
+    $dbhost = "localhost:3307";
     $dbuser = "root";
     $dbpass = "";
     $dbname = "project_wt"; 

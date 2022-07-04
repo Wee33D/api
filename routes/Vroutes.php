@@ -74,7 +74,7 @@ return function (App $app) {
         $data = $service->getAllContacts();
     
     
-        return $this->view->render($response, 'viewContacts.php', $data);
+        return $this->view->render($response, 'home.php', $data);
     });
 
     $app->post('/Contacts/add', function ($request, $response) {
@@ -83,7 +83,7 @@ return function (App $app) {
         $json = json_decode($request->getBody());
         $name = $json->name;
         $phonenum = $json->phonenum;
-        $email = $json->address;
+        $email = $json->email;
 
         $service = new ContactService();
         $dbs = $service->insertContact($name, $phonenum, $email);
@@ -103,8 +103,9 @@ return function (App $app) {
         //form data
         $json = $request->getParsedBody();
         $name = $json['name'];
-        $email = $json['email'];
         $phonenum = $json['phonenum'];
+        $email = $json['email'];
+        
         $service = new ContactService();
         $dbs = $service->insertContact($name, $email, $phonenum);
     
@@ -113,7 +114,7 @@ return function (App $app) {
             "errorMessage" => $dbs->error
         );
     
-    
+        
         return $response->withJson($data, 200)
             ->withHeader('Content-type', 'application/json');
     });

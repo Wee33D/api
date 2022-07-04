@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Update Patient</title>
+    <title>Update Contact</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="container">
-      <h3>Update Patient</h3>
+      <h3>Update Contact Info</h3>
       <form id="PatientForm">
         <div class="form-group">
           <label for="exampleInputEmail1">Id</label>
@@ -37,68 +37,26 @@
             class="form-control"
             id="name"
             aria-describedby="emailHelp"
-            placeholder="Enter name"
+            placeholder="Full Name:"
           />
         </div>
+    
+
         <div class="form-group">
-          <label for="exampleFormControlSelect1">Gender</label>
-          <select class="form-control" id="gender">
-            <option value="0">Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+          <label for="exampleInputPassword1">Contact Number</label>
+          <input type="text" class="form-control" id="age" placeholder="Contact Number:" />
         </div>
 
         <div class="form-group">
-          <label for="exampleInputPassword1">Age</label>
-          <input type="text" class="form-control" id="age" placeholder="age" />
-        </div>
-
-        <div class="form-group">
-          <label for="exampleInputPassword1">Mobile No</label>
+          <label for="exampleInputPassword1">Email</label>
           <input
             type="text"
             class="form-control"
             id="mobileno"
-            placeholder="mobile"
+            placeholder="Email Address:"
           />
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">State</label>
-          <input
-            type="text"
-            class="form-control"
-            id="state"
-            placeholder="state"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">city</label>
-          <input
-            type="text"
-            class="form-control"
-            id="city"
-            placeholder="city"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Post Code</label>
-          <input
-            type="text"
-            class="form-control"
-            id="postcode"
-            placeholder="postcode"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Address</label>
-          <textarea
-            class="form-control"
-            id="address"
-            rows="4"
-            cols="50"
-          ></textarea>
-        </div>
+      
 
         <input type="submit" class="btn btn-primary" value="Submit" />
       </form>
