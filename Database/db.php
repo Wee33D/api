@@ -26,10 +26,6 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE");
     
    function getDatabase() {
 
-    $dbhost = "localhost:3306";
-    $dbuser = "root";
-    $dbpass = "";
-    $dbname = "project_wt"; 
 
     $db = new db();
     return $db;

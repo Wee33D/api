@@ -1,5 +1,5 @@
 <?php
-require 'Database/db.php';
+// require 'Database/db.php';
 require 'models/Contact.php';
 
 class ContactService{
