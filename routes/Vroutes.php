@@ -75,7 +75,10 @@ return function (App $app) {
 
 
 
-    //PART ADY -CONTACTS
+    //PART ADY 
+    
+
+    //DISPLAY USER INFO
 
     $app->get('/Contacts', function ($request, $response) {
 
@@ -85,38 +88,67 @@ return function (App $app) {
 
         return $response->withJson($data, 200)
             ->withHeader('Content-type', 'application/json');
-    });
+    }); 
 
-    $app->get('/allContacts', function ($request, $response) {
-
+    $app->get('/Contacts/[{id}]', function($request, $response, $args){
+      
+        $id = $args['id'];
+  
         $service = new ContactService();
-        $data = $service->getAllContacts();
-    
-    
-        return $this->view->render($response, 'home.php', $data);
-    });
+        $data = $service->getContactViaId($id);
+  
+        return $response->withJson($data, 200)
+                        ->withHeader('Content-type', 'application/json'); 
+     }); 
 
-    $app->post('/Contacts/add', function ($request, $response) {
+     $app->put('/Contacts/[{id}]', function($request, $response, $args){
+  
+        $id = $args['id'];
 
-        //form data
         $json = json_decode($request->getBody());
         $name = $json->name;
         $phonenum = $json->phonenum;
         $email = $json->email;
-
+        
+  
         $service = new ContactService();
-        $dbs = $service->insertContact($name, $phonenum, $email);
-
-        $data = array(
-            "insertStatus" => $dbs->status,
-            "errorMessage" => $dbs->error
+        $dbs = $service->updateContactViaId($id, $name, $phonenum, $email);
+  
+        $data = Array(
+           "updateStatus" => $dbs->status,
+           "errorMessage" => $dbs->error
         );
-
-
+  
         return $response->withJson($data, 200)
-            ->withHeader('Content-type', 'application/json');
-    });
+                        ->withHeader('Content-type', 'application/json');
+     });  
 
+    
+
+
+    // $app->post('/Contacts/add', function ($request, $response) {
+
+        
+    //     $json = json_decode($request->getBody());
+    //     $name = $json->name;
+    //     $phonenum = $json->phonenum;
+    //     $email = $json->email;
+
+    //     $service = new ContactService();
+    //     $dbs = $service->insertContact($name, $phonenum, $email);
+
+    //     $data = array(
+    //         "insertStatus" => $dbs->status,
+    //         "errorMessage" => $dbs->error
+    //     );
+
+
+    //     return $response->withJson($data, 200)
+    //         ->withHeader('Content-type', 'application/json');
+    // });
+
+
+    // ADD USER VIA FORM
     $app->post('/Contacts/addByForm', function ($request, $response) {
 
         //form data
@@ -136,6 +168,8 @@ return function (App $app) {
         
         return $response->withJson($data, 200)
             ->withHeader('Content-type', 'application/json');
+
+            // return $this->view->render($response, 'home.php', $data);
     });
   
 };

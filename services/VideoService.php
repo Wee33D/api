@@ -10,7 +10,9 @@ class VideoService {
     }
 
 
-    function insertVideo($sendername,$videourl,$timendateupload){
+
+    function insertVideo($videoname,$videourl,$timeupload,$dateupload){
+
         try{
             $sql = "INSERT INTO videos(sendername, videourl, timendateupload) VALUES (:sendername,:videourl, NOW() )";
 

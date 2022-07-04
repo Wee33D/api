@@ -19,6 +19,8 @@ class ContactService{
             $stmt->bindParam(":phonenum", $phonenum);
             $stmt->bindParam(":email", $email);
 
+            $stmt->execute();
+
             
 
             $dbs = new DbResponse();
@@ -61,6 +63,75 @@ class ContactService{
 
         return $data;
     }
+
+
+    //DISPLAY CONTACT INFO BASED ON ID FOR UPDATE
+    function getContactViaId($id)
+    {
+
+        $sql = "SELECT *
+                FROM contacts
+                WHERE id = :id";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam("id", $id);
+        $stmt->execute();
+        $row_count = $stmt->rowCount();
+
+        $data = array();
+
+        if ($row_count) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+                $contact = new Contact();
+                $contact->id = $row['id'];
+                $contact->name = $row['name'];
+                $contact->phonenum = $row['phonenum'];
+                $contact->email = $row['email'];
+
+                array_push($data, $contact);
+            }
+        }
+
+        return $data;
+    }
+
+
+    function updateContactViaId($id, $name, $phonenum, $email)
+    {
+
+        $sql = "UPDATE contacts
+                SET name = :name,
+                    phonenum = :phonenum,
+                    email= :email,
+                WHERE id = :id";
+
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam("id", $id);
+            $stmt->bindParam("name", $name);
+            $stmt->bindParam("phonenum", $phonenum);
+            $stmt->bindParam("email", $email);
+            
+
+            $stmt->execute();
+
+            $dbs = new DbResponse();
+            $dbs->status = true;
+            $dbs->error = "none";
+
+            return $dbs;
+        } catch (PDOException $e) {
+            $errorMessage = $e->getMessage();
+
+            $dbs = new DbResponse();
+            $dbs->status = false;
+            $dbs->error = $errorMessage;
+
+            return $dbs;
+        }
+    }
+
 
 
 }
