@@ -33,15 +33,15 @@ return function (App $app) {
     });
 
 
-    $app->post('/video', function ($request,$response){
+    $app->post('/video/add', function ($request,$response){
         $json = json_decode($request->getBody());
-        $name= $json->videoname;
-        $url = $json->videourl;
-        $timeup = $json->timeupload;
-        $dateup = $json->dateupload;
+        $videoname= $json->videoname;
+        $videourl = $json->videourl;
+        $timeupload = $json->timeupload;
+        $dateupload = $json->dateupload;
 
         $service = new VideoService();
-        $dbs = $service->insertVideo($name,$url,$timeup,$dateup);
+        $dbs = $service->insertVideo($videoname,$videourl,$timeupload,$dateupload);
 
         $data = array(
             "insertStatus"=> $dbs->status,
