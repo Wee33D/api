@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>List All Patients</title>
+    <title>List All Contacts</title>
 
     <meta charset="utf-8" />
     <meta
@@ -23,13 +23,13 @@
       <button type="button" class="btn btn-primary" id="addpatient">
         Add new Patient</button
       ><br /><br />
-      <table class="table" id="patients">
+      <table class="table" id="Contacts">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Mobile No</th>
-            <th scope="col">Status</th>
+            <th scope="col">E-mail</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -60,27 +60,12 @@
       $(function () {
         $.ajax({
           type: "get",
-          url: "api/patients",
+          url: "Contacts",
           dataType: "json",
           success: function (data) {
             data.forEach((p) => {
-              var status = "";
-              var statusdate = "";
-              if (p.status == 1) {
-                status = "Admission";
-                statusdate = p.admissiondate;
-              } else if (p.status == 2) {
-                status = "ICU admission";
-                statusdate = p.icuadmissiondate;
-              } else if (p.status == 3) {
-                status = "Clinical death";
-                statusdate = p.clinicaldeathdate;
-              } else if (p.status == 4) {
-                status = "Discharge";
-                statusdate = p.dischargedate;
-              }
-
-              $("#patients tbody").append(
+            
+              $("#Contacts tbody").append(
                 "<tr>" +
                   "   <td>" +
                   p.id +
@@ -91,12 +76,12 @@
                   p.name +
                   "</a></td>" +
                   "   <td>" +
-                  p.mobileno +
+                  p.phonenum +
                   "</td>" +
                   "   <td>" +
-                  status +
-                  "<br />" +
-                  statusdate +
+                  p.email +
+                  
+                  
                   "</td>" +
                   "   <td><a href='display.html?id=" +
                   p.id +
