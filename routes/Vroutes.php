@@ -9,7 +9,7 @@ use Slim\App;
 require_once 'vendor/autoload.php';
 require 'Services/ContactService.php';
 require 'Services/VideoService.php';
-
+require 'Database/db.php';
 
 return function (App $app) {
     $app->options('/{routes:.*}', function (Request $request, Response $response) {
@@ -22,7 +22,7 @@ return function (App $app) {
         return $response->withJson($output, 200, JSON_PRETTY_PRINT);
     });
 
-    $app->get('/video', function ($request, $response) {
+    $app->get('/Videos', function ($request, $response) {
 
         $service = new VideoService();
         $data = $service->getAllVideo();
@@ -33,7 +33,7 @@ return function (App $app) {
     });
 
 
-    $app->post('/video/add', function ($request,$response){
+    $app->post('/Videos/add', function ($request,$response){
         $json = json_decode($request->getBody());
         $videoname= $json->videoname;
         $videourl = $json->videourl;

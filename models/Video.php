@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 class Video {
     public $videoname;
+    public $videourl;
     public $timeupload;
     public $dateupload;
-    public $videourl;
+    
 
 
     public function JsonSerializable(){
@@ -14,9 +15,10 @@ class Video {
         return [
             'id' => $this->id,
             'videoname'=> $this->videoname,
+            'videourl'=> $this->videourl,
             'timeupload'=> $this->timeupload,
-            'dateupload'=> $this->dateupload,
-            'videourl'=> $this->videourl
+            'dateupload'=> $this->dateupload
+            
         ];
     }
 }
