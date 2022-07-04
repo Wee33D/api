@@ -1,0 +1,14 @@
+{
+    "require": {
+        "slim/slim": "^3.7.0"
+    },
+    "autoload": {
+        "classmap": [
+
+          "Database",
+          "models",
+          "Services"
+        ]
+    }
+}
+
