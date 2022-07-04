@@ -71,6 +71,8 @@ return function (App $app) {
             ->withHeader('Content-type', 'application/json');
     }); 
 
+    //DISPLAY USER INFO VIA ID
+
     $app->get('/Contacts/[{id}]', function($request, $response, $args){
       
         $id = $args['id'];
@@ -82,7 +84,9 @@ return function (App $app) {
                         ->withHeader('Content-type', 'application/json'); 
      }); 
 
-     $app->put('/Contacts/[{id}]', function($request, $response, $args){
+     //UPDATE USER INFO
+
+     $app->put('/Contacts/update/[{id}]', function($request, $response, $args){
   
         $id = $args['id'];
 
@@ -103,6 +107,24 @@ return function (App $app) {
         return $response->withJson($data, 200)
                         ->withHeader('Content-type', 'application/json');
      });  
+
+     // DELETE CONTACT VIA ID
+
+     $app->post('/Contacts/delete/[{id}]', function ($request, $response, $args) {
+
+        $id = $args['id'];
+    
+        $service = new ContactService();
+        $dbs = $service->deleteContactViaId($id);
+    
+        $data = array(
+            "updateStatus" => $dbs->status,
+            "errorMessage" => $dbs->error
+        );
+    
+        return $response->withJson($data, 200)
+            ->withHeader('Content-type', 'application/json');
+    });
 
     
 
