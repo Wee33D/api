@@ -55,11 +55,11 @@
               "   <td>" +
               p.id +
               "</td>" +
-              "   <td><a href='display.html?id=" +
-              p.id +
-              "'>" +
-              p.name +
-              "</a></td>" +
+                  "   <td><a href='updatecontact.php?id=" +
+                  p.id +
+                  "'>" +
+                  p.name +
+                  "</a></td>" +
               "   <td>" +
               p.phonenum +
               "</td>" +
