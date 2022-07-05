@@ -108,12 +108,38 @@ class ContactService{
 
         try {
             $stmt = $this->db->prepare($sql);
-            $stmt->bindParam("id", $id);
-            $stmt->bindParam("name", $name);
-            $stmt->bindParam("phonenum", $phonenum);
-            $stmt->bindParam("email", $email);
+            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":phonenum", $phonenum);
+            $stmt->bindParam(":email", $email);
             
 
+            $stmt->execute();
+
+            $dbs = new DbResponse();
+            $dbs->status = true;
+            $dbs->error = "none";
+
+            return $dbs;
+        } catch (PDOException $e) {
+            $errorMessage = $e->getMessage();
+
+            $dbs = new DbResponse();
+            $dbs->status = false;
+            $dbs->error = $errorMessage;
+
+            return $dbs;
+        }
+    }
+
+    function deleteContactViaId($id)
+    {
+
+        $sql = "DELETE FROM contacts WHERE id = :id";
+
+        try {
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam("id", $id);
             $stmt->execute();
 
             $dbs = new DbResponse();

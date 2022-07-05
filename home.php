@@ -55,11 +55,8 @@
               "   <td>" +
               p.id +
               "</td>" +
-                  "   <td><a href='updatecontact.php?id=" +
-                  p.id +
-                  "'>" +
-                  p.name +
-                  "</a></td>" +
+              p.name +
+              "</a></td>" +
               "   <td>" +
               p.phonenum +
               "</td>" +
@@ -67,16 +64,17 @@
               p.email +
 
 
-              "</td>" +
-              "   <td><a href='updatecontact.php?id=" +
-              "<button class='btn btn-sm btn-warning'  type='button' data-id='" +
+              "   <td><a href='updateContact.php?id=" +
               p.id +
-              "' data-status='2'>UPDATE</button> |  " +
+              "'>" +
+             "UPLOAD" +
+              "</a></td>" +
 
-              "   <td><a href='insert.html?id=" +
-              "<button class='btn btn-sm btn-warning' type='button' data-id='" +
+              "   <td><a href='/api/Contacts/delete?id=" +
               p.id +
-              "' data-status='3'>DELETE</button> | " +
+              "'>" +
+             "DELETE" +
+              "</a></td>" +
 
 
 

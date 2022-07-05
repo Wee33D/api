@@ -13,7 +13,7 @@
 <body>
   <div class="container">
     <h3>Update Contact Info</h3>
-    <form id="ContactForm">
+    <form action="/api/Contacts/update" method="POST">
       <div class="form-group">
         <label for="exampleInputEmail1">Id</label>
         <input type="text" class="form-control" id="id" aria-describedby="emailHelp" readonly />
