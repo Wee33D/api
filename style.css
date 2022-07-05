@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
+   
 }
 
 .header{
@@ -84,7 +85,13 @@ nav ul li:hover{
     display: flex;
     justify-content: space-between;
 }
+a:link{
+    color: black;
+}
 
+a:visited{
+    color: black;
+}
 .col-1{
     flex-basis:60%;
 }
@@ -182,13 +189,7 @@ nav ul li:hover{
 
 }
 
-a:link{
-    color: black;
-}
 
-a:visited{
-    color: black;
-}
 
 .chatbox{
     background: #182842;

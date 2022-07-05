@@ -1,273 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Add Video</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-<div class="form-body">
-    <div class="row">
-        <div class="form-holder">
-            <div class="form-content">
-                <div class="form-items">
-                    <h3>Add Video</h3>
-                    <p>Fill in the data below.</p>
 
 
-                    <form action="/api/Videos/addByForm" method="POST">
 
-                        <!-- <form id="ContactForm"> -->
-
-                        <div class="col-md-12">
-                           <input class="form-control" type="text" name="sendername" id="sendername" placeholder="Username" required>
-                           <div class="valid-feedback">Username field is valid!</div>
-                           <div class="invalid-feedback">Username field cannot be blank!</div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <input class="form-control" type="text" name="videourl" id="videourl" placeholder="Video URL:" required>
-                             <div class="valid-feedback">Url field is valid!</div>
-                             <div class="invalid-feedback">Url field cannot be blank!</div>
-                        </div>
-
-
-                        
-
-               <br>
-
-                        <div class="form-button mt-3">
-                            <!-- <button id="submit" type="submit" class="btn btn-primary">ADD</button> -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-
-                            <br>  <br> 
-
-                            <a href="http://localhost/api/videolist.html">
-                                <button type="button" class="btn btn-primary">
-                                  Back</button
-                                ></a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- <script
-src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-crossorigin="anonymous"
-></script>
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-crossorigin="anonymous"
-></script>
-<script
-src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-crossorigin="anonymous"
-></script>
-<script
-src="https://code.jquery.com/jquery-3.6.0.min.js"
-integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous"
-></script>
-<script>
-$(function () {
-  $("#ContactForm").submit(function (event) {
-    event.preventDefault();
-
-
-    const contact = {
-       name :$("#name").val(),
-       email : $("#email").val(),
-       phonenum : $("#phonenum").val(),
-    }
-console.log(contact);
-    $.ajax({
-      type: "post",
-      url: "Contacts/addbyForm",
-      contentType: "application/json",
-      data: JSON.stringify(contact),
-      dataType: "json",
-      success: function (data) {
-        window.location.href = "home.php";
-      },
-      error: function () {
-        console.log("error");
-      },
-    });
-  });
-});
-</script> -->
 
   </body>
 </html>
 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+    </head>
+    <body>
+
+      <form action="/api/Videos/addByForm" method="POST">
+        
+        <h1>Add video</h1>
+        
+        <fieldset>
+          
+          <legend><span class="number">1</span> Fill the field</legend>
+          
+          <label for="sendername">Username:</label>
+          <input type="text" id="sendername" name="sendername">
+          
+          <label for="videourl">Video URL:</label>
+          <input type="text" id="videourl" name="videourl">
+          
+          
+          
+        
+        </fieldset>
+          
+        <button type="submit">Submit</button>
+        <br>  <br> 
+
+        <a href="http://localhost/api/videolist.html">
+                                <button type="button" class="btn btn-primary">
+                                  Back</button
+                                ></a>
+      </form>
+      
+    </body>
+</html>
 
 <style>
 
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-    
-    *, body {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    
-    html, body {
-        height: 100%;
-        background-color: #152733;
-        overflow: hidden;
-    }
-    
-    
-    .form-holder {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          min-height: 100vh;
-    }
-    
-    .form-holder .form-content {
-        position: relative;
-        text-align: center;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-align-items: center;
-        align-items: center;
-        padding: 60px;
-    }
-    
-    .form-content .form-items {
-        border: 3px solid #fff;
-        padding: 40px;
-        display: inline-block;
-        width: 100%;
-        min-width: 540px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-        text-align: left;
-        -webkit-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-    }
-    
-    .form-content h3 {
-        color: #fff;
-        text-align: left;
-        font-size: 28px;
-        font-weight: 600;
-        margin-bottom: 5px;
-    }
-    
-    .form-content h3.form-title {
-        margin-bottom: 30px;
-    }
-    
-    .form-content p {
-        color: #fff;
-        text-align: left;
-        font-size: 17px;
-        font-weight: 300;
-        line-height: 20px;
-        margin-bottom: 30px;
-    }
-    
-    
-    .form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
-        color: #fff;
-    }
-    
-    .form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
-        width: 100%;
-        padding: 9px 20px;
-        text-align: left;
-        border: 0;
-        outline: 0;
-        border-radius: 6px;
-        background-color: #fff;
-        font-size: 15px;
-        font-weight: 300;
-        color: #8D8D8D;
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        margin-top: 16px;
-    }
-    
-    
-    .btn-primary{
-        background-color: #6C757D;
-        outline: none;
-        border: 0px;
-         box-shadow: none;
-    }
-    
-    .btn-primary:hover, .btn-primary:focus, .btn-primary:active{
-        background-color: #495056;
-        outline: none !important;
-        border: none !important;
-         box-shadow: none;
-    }
-    
-    .form-content textarea {
-        position: static !important;
-        width: 100%;
-        padding: 8px 20px;
-        border-radius: 6px;
-        text-align: left;
-        background-color: #fff;
-        border: 0;
-        font-size: 15px;
-        font-weight: 300;
-        color: #8D8D8D;
-        outline: none;
-        resize: none;
-        height: 120px;
-        -webkit-transition: none;
-        transition: none;
-        margin-bottom: 14px;
-    }
-    
-    .form-content textarea:hover, .form-content textarea:focus {
-        border: 0;
-        background-color: #ebeff8;
-        color: #8D8D8D;
-    }
-    
-    .mv-up{
-        margin-top: -9px !important;
-        margin-bottom: 8px !important;
-    }
-    
-    .invalid-feedback{
-        color: #ff606e;
-    }
-    
-    .valid-feedback{
-       color: #2acc80;
-    }
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+  background-color: black;
+}
+
+form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: grey;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid grey;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: black;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+@media screen and (min-width: 480px) {
+
+  form {
+    max-width: 480px;
+  }
+
+}
+
     
     </style>

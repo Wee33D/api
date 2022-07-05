@@ -101,12 +101,12 @@
 
         $.ajax({
           type: "put",
-          url: "Contacts/" + id,
+          url: "Contacts" + id,
           contentType: "application/json",
           data: JSON.stringify(contact),
           dataType: "json",
           success: function (data) {
-            window.location.href = "index.html";
+            window.location.href = "home.php";
           },
           error: function () {
             console.log("error");

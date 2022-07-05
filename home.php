@@ -60,9 +60,6 @@
               "   <td>" +
               p.id +
               "</td>" +
-              "   <td><a href='/api/Contacts/delete?id=" +
-              p.id +
-              "'>" +
               p.name +
               "</a></td>" +
               "   <td>" +
