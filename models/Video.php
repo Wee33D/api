@@ -5,7 +5,7 @@ declare(strict_types=1);
 class Video {
     public $sendername;
     public $videourl;
-    public $datentimeupload;
+    public $timendateupload;
     
 
 
